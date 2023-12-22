@@ -355,7 +355,7 @@ function detailedGitStats() {
 
         /^Author:/ {
         $1 = ""
-        author = $0
+        author = substr($0, 0, index($0, "<")-2)
         commits[author] += 1
         commits["total"] += 1
         }
